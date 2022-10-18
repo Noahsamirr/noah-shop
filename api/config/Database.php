@@ -10,10 +10,10 @@ class Database
     private const TABLE_NAME = 'products';
     
     // live database credentials
-    private $host = "ec2-34-235-31-124.compute-1.amazonaws.com";
-    private $db_name = "dc71mss5fmt7st";
-    private $username = "jqwpldyrptiwyw";
-    private $password = "beb0aecabe4fddbb6a45aa4b9b1f88310a125530db56b11518626e3586b64882";
+    private $host = "eu-cdbr-west-01.cleardb.com";
+    private $db_name = "heroku_932ff062088bfc3";
+    private $username = "babe008702e052";
+    private $password = "333d0a4c";
     public $conn;
 
     public function __construct()
