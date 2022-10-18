@@ -83,12 +83,10 @@
               }else if(jqXHR.status == 503){
                 //sku duplication alert
                 
-                $('#div').prepend("<div class=\"alert alert-dark mt-3\" role=\"alert\">", function(e) {
-                  e.preventDefault();
-                } +
+                $('#div').prepend("<div class=\"alert alert-dark mt-3\" role=\"alert\">", +
                     "  Sku should be a unique number.\n" +
                     "</div>");
-                    return false;
+                    
             }
         });
     });
