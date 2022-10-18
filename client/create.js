@@ -1,4 +1,7 @@
-  //to switch between the dvd,book and furniture inputs 
+$( document ).ready(function() {
+            document.getElementById("productType").selectedIndex = 0;
+        });
+      //to switch between the dvd,book and furniture inputs 
       $(function() {
           $('#productType').change(function(){
             var type= $(this).val();
@@ -7,8 +10,34 @@
            });
     });
 
+      function validateInput(data){
+        let valid = true;
+        if (data.price === "" || data.sku === "" || data.name === "" || data.type === null) {
+          valid = false;
+        }
 
+        switch (data.type) {
+          case 'dvd':
+            if (data.size === "") valid = false;
+            break;
+          case 'book':
+            if (data.weight === "") valid = false;
+            break;
+          case 'furniture':
+            if (data.height === "" || data.width === "" || data.length === "") valid = false;
+            break;
+        }
 
+        return valid;
+      }
+
+      function appendAlert() {
+        if (!$('.alert')[0]) {
+          $('#div').prepend("<div class=\"alert alert-dark mt-3\" role=\"alert\">\n" +
+              "  Please, submit required data.\n" +
+              "</div>");
+        }
+      }
 
       $('#submit-form').click(function(e) {
           //to prevent form default action
@@ -25,6 +54,12 @@
               length: $("input[id=length]").val(),
               weight: $("input[id=weight]").val()
           };
+
+          if (!validateInput(data)) {
+            appendAlert();
+            return;
+          }
+
           //post request to create product using ajax
           var ajaxRequest = $.ajax({
               type: "POST",
@@ -44,10 +79,7 @@
               if(jqXHR.status == 400)
               {
                 //no data submited alert
-                  $('#div').prepend("<div class=\"alert alert-dark mt-3\" role=\"alert\">\n" +
-                      "  Please, submit required data.\n" +
-                      "</div>");
-
+                appendAlert();
               }else if(jqXHR.status == 503){
                 //sku duplication alert
                   $('#div').prepend("<div class=\"alert alert-dark mt-3\" role=\"alert\">\n" +
