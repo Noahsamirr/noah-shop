@@ -82,6 +82,7 @@
                 appendAlert();
               }else if(jqXHR.status == 503){
                 //sku duplication alert
+                if (!$('.alert')[0]) {
                   $('#div').prepend("<div class=\"alert alert-dark mt-3\" role=\"alert\">\n" +
                       "  Sku should be a unique number.\n" +
                       "</div>");
