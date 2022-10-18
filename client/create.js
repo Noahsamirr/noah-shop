@@ -1,4 +1,4 @@
-  $( document ).ready(function() {
+$( document ).ready(function() {
             document.getElementById("productType").selectedIndex = 0;
         });
       //to switch between the dvd,book and furniture inputs 
@@ -82,14 +82,12 @@
                 appendAlert();
               }else if(jqXHR.status == 503){
                 //sku duplication alert
-                
-                $('#div').prepend("<div class=\"alert alert-dark mt-3\" role=\"alert\">", +
-                    "  Sku should be a unique number.\n" +
-                    "</div>");
-                    
-            }
-        });
-    });
+                  $('#div').prepend("<div class=\"alert alert-dark mt-3\" role=\"alert\">\n" +
+                      "  Sku should be a unique number.\n" +
+                      "</div>");
+              }
+          });
+      });
       //cancel button transition to index
       $('#to-index').click(function(e){
          e.preventDefault();
