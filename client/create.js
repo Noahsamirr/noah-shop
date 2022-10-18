@@ -63,7 +63,7 @@ $( document ).ready(function() {
           //post request to create product using ajax
           var ajaxRequest = $.ajax({
               type: "POST",
-              url: "https://halim-shop.herokuapp.com/api/controllers/ProductsController.php",
+              url: "https://noah-shop.herokuapp.com/api/controllers/ProductsController.php",
               data: JSON.stringify(data),
               contentType: "application/x-www-form-urlencoded; charset=utf-8",
               dataType: "json"});
