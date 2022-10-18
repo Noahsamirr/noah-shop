@@ -45,6 +45,8 @@
             if(jqXHR.status == 400)
             {
               //no data submited alert
+            // if the data equals an empty string or 0 print alert status
+            if(jqXHR.responseText.length == 0 || jqXHR.responseText.charAt(0) == ' ') return false;
                 $('#div').prepend("<div class=\"alert alert-dark mt-3\" role=\"alert\">" +
                     "  Please, submit required data." +
                     "</div>");
