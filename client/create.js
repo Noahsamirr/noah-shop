@@ -12,7 +12,7 @@ $( document ).ready(function() {
 
       function validateInput(data){
         let valid = true;
-        if (data.price === "" || data.sku === "" || data.name === "" || data.type === null) {
+        if (data.price === "" || data.sku === "" || data.name === "" || data.type === 0) {
           valid = false;
         }
 
@@ -32,12 +32,25 @@ $( document ).ready(function() {
       }
 
       function appendAlert() {
-        if (!$('.alert')[0]) {
-          $('#div').prepend("<div class=\"alert alert-dark mt-3\" role=\"alert\">\n" +
-              "  Please, submit required data.\n" +
-              "</div>");
-        }
+        $('#unique').remove();
+        $('.alert').remove();
+        $('#div').prepend("<div class=\"alert alert-dark mt-3\" role=\"alert\">\n" +
+            "  Please, submit required data.\n" +
+            "</div>");
+      
       }
+
+      function appendUniuqenessAlert() {
+        $('#unique').remove();
+        $('.alert').remove();
+
+          console.log('1');
+          $('#div').prepend("<div id=\"unique\" class=\"alert alert-dark unique mt-3\" role=\"alert\">\n" +
+              "  Sku should be a unique number.\n" +
+              "</div>"
+          );
+        } 
+
 
       $('#submit-form').click(function(e) {
           //to prevent form default action
@@ -82,9 +95,7 @@ $( document ).ready(function() {
                 appendAlert();
               }else if(jqXHR.status == 503){
                 //sku duplication alert
-                  $('#div').prepend("<div class=\"alert alert-dark mt-3\" role=\"alert\">\n" +
-                      "  Sku should be a unique number.\n" +
-                      "</div>");
+                appendUniuqenessAlert();
               }
           });
       });
