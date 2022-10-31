@@ -26,6 +26,7 @@ $( document ).ready(function() {
           case 'furniture':
             if (data.height === "" || data.width === "" || data.length === "") valid = false;
             break;
+            default : valid = false;
         }
 
         return valid;
