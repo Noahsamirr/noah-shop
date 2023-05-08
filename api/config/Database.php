@@ -11,9 +11,9 @@ class Database
     
     // live database credentials
     private $host = "us-cdbr-east-06.cleardb.net";
-    private $db_name = "heroku_93ce57568f92d8a";
-    private $username = "bb177f8d1dda98";
-    private $password = "441034aa";
+    private $db_name = "heroku_e66afb63d91d6a3";
+    private $username = "b4d962c693b242";
+    private $password = "2eb13b38";
     public $conn;
 
     public function __construct()
